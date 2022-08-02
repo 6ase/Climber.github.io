@@ -47,9 +47,10 @@ document.addEventListener("keydown", (event) => {
       birdSound.pause();
       windSound.play();
     }
+    if (count ===1 ) background.style.background = "rgb(45, 94, 148)";
     if (count === 2) {
       
-      background.style.background = "rgb(45, 94, 148)";
+      
       weather.classList.replace("no-snow", "snow");
       weather = document.querySelector(".snow");
 
