@@ -47,7 +47,7 @@ document.addEventListener("keydown", (event) => {
       birdSound.pause();
       windSound.play();
     }
-    if (count ===1 ) background.style.background = "rgb(45, 94, 148)";
+    
     if (count === 2) {
       
       
@@ -80,7 +80,7 @@ document.addEventListener("keydown", (event) => {
       setTimeout(() => {
         count = count - 7;
       }, 110);
-      
+       background.style.background = "rgb(45, 94, 148)";
     } else if (count === 9) {
       const finish = document.createElement("img");
       finish.src = "img/win.gif";
