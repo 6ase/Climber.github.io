@@ -2,7 +2,7 @@ const climber = document.querySelector(".climber");
 const hanglers = document.querySelectorAll(".hangler");
 const weather = document.querySelector(".no-snow");
 const background = document.querySelector(".background");
-let dropCount = 0
+
 let count = -1;
 let flagBack = true;
 let flagFirstSnow = true;
@@ -34,26 +34,17 @@ function restart() {
 alert("Давным давно, на далёкой далёкой горе⛰️.....");
 birdSound.play();
 document.addEventListener("keydown", (event) => {
-  if (dropCount === 2) {
-    dropCount = 0
-    alert('Возможно, чтобы сделать два шага вперёд, нужно сделать один шаг назад')
-   }
   if (event.code == "KeyX") {
     rotateClimber(pos);
     jumpSound.play();
     count > 8 ? count : count++;
     hanglers[count].appendChild(climber);
-    if (count === 1){
-      background.style.background = "rgb(45, 94, 148)";
-    }
-    else if (count > 1) {
+    if (count > 1) {
       birdSound.pause();
       windSound.play();
     }
-    
-    else if (count === 2) {
-      
-      
+    if (count === 2) {
+      background.style.background = "rgb(45, 94, 148)";
       weather.classList.replace("no-snow", "snow");
       weather = document.querySelector(".snow");
 
@@ -72,7 +63,6 @@ document.addEventListener("keydown", (event) => {
       background.prepend(snowBall3);
       flagDangerSnow = false;
     } else if (count === 8 && flagBack) {
-      Count++
       drop.play();
       setTimeout(() => {
         hanglers[count - 7].appendChild(climber);
@@ -80,7 +70,6 @@ document.addEventListener("keydown", (event) => {
       setTimeout(() => {
         count = count - 7;
       }, 110);
-       
     } else if (count === 9) {
       const finish = document.createElement("img");
       finish.src = "img/win.gif";
