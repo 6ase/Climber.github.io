@@ -2,7 +2,7 @@ const climber = document.querySelector(".climber");
 const hanglers = document.querySelectorAll(".hangler");
 const weather = document.querySelector(".no-snow");
 const background = document.querySelector(".background");
-
+let dropCount = 0
 let count = -1;
 let flagBack = true;
 let flagFirstSnow = true;
@@ -63,6 +63,7 @@ document.addEventListener("keydown", (event) => {
       background.prepend(snowBall3);
       flagDangerSnow = false;
     } else if (count === 8 && flagBack) {
+      dropCount++
       drop.play();
       setTimeout(() => {
         hanglers[count - 7].appendChild(climber);
@@ -70,6 +71,7 @@ document.addEventListener("keydown", (event) => {
       setTimeout(() => {
         count = count - 7;
       }, 110);
+      if (dropCount === 5) alert('Возможно, чтобы сделать два шага вперёд, нужно сделать один шаг назад)')
     } else if (count === 9) {
       const finish = document.createElement("img");
       finish.src = "img/win.gif";
