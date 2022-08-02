@@ -44,6 +44,7 @@ document.addEventListener("keydown", (event) => {
       windSound.play();
     }
     if (count === 2) {
+      if (dropCount === 2) alert('Возможно, чтобы сделать два шага вперёд, нужно сделать один шаг назад)')
       background.style.background = "rgb(45, 94, 148)";
       weather.classList.replace("no-snow", "snow");
       weather = document.querySelector(".snow");
@@ -71,7 +72,7 @@ document.addEventListener("keydown", (event) => {
       setTimeout(() => {
         count = count - 7;
       }, 110);
-      if (dropCount === 5) alert('Возможно, чтобы сделать два шага вперёд, нужно сделать один шаг назад)')
+      
     } else if (count === 9) {
       const finish = document.createElement("img");
       finish.src = "img/win.gif";
