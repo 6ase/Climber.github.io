@@ -6,7 +6,7 @@ let dropCount = 0
 let count = -1;
 let flagBack = true;
 let flagFirstSnow = true;
-// let flagDangerSnow = true;
+let flagDangerSnow = true;
 let pos = 0;
 const jumpSound = new Audio("audio/jump.mp3");
 const windSound = new Audio("audio/wind.mp3");
@@ -43,12 +43,15 @@ document.addEventListener("keydown", (event) => {
     jumpSound.play();
     count > 8 ? count : count++;
     hanglers[count].appendChild(climber);
-    if (count > 1) {
+    if (count === 1){
+      background.style.background = "rgb(45, 94, 148)";
+    }
+    else if (count > 1) {
       birdSound.pause();
       windSound.play();
     }
     
-    if (count === 2) {
+    else if (count === 2) {
       
       
       weather.classList.replace("no-snow", "snow");
@@ -62,16 +65,13 @@ document.addEventListener("keydown", (event) => {
       flagFirstSnow = false;
       background.prepend(snowBall1);
       background.prepend(snowBall2);
-    } else if (count === 6 /*&& flagDangerSnow*/) {
+    } else if (count === 6 && flagDangerSnow) {
       background.style.background = "rgb(74, 6, 6)";
       weather.style.animation = "snow 1s linear infinite";
       snowBall3.className = "enemy3";
       background.prepend(snowBall3);
-     // flagDangerSnow = false;
+      flagDangerSnow = false;
     } else if (count === 8 && flagBack) {
-      
-      
-      
       Count++
       drop.play();
       setTimeout(() => {
@@ -80,7 +80,7 @@ document.addEventListener("keydown", (event) => {
       setTimeout(() => {
         count = count - 7;
       }, 110);
-       background.style.background = "rgb(45, 94, 148)";
+       
     } else if (count === 9) {
       const finish = document.createElement("img");
       finish.src = "img/win.gif";
