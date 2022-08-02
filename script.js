@@ -35,9 +35,9 @@ alert("Давным давно, на далёкой далёкой горе⛰�
 birdSound.play();
 document.addEventListener("keydown", (event) => {
   if (dropCount === 2) {
+    dropCount = 0
     alert('Возможно, чтобы сделать два шага вперёд, нужно сделать один шаг назад)')
-  dropCount = 0
-  }
+   }
   if (event.code == "KeyX") {
     rotateClimber(pos);
     jumpSound.play();
@@ -68,7 +68,10 @@ document.addEventListener("keydown", (event) => {
       background.prepend(snowBall3);
      // flagDangerSnow = false;
     } else if (count === 8 && flagBack) {
-      dropCount++
+      
+      
+      
+      Count++
       drop.play();
       setTimeout(() => {
         hanglers[count - 7].appendChild(climber);
