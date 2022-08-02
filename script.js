@@ -36,7 +36,7 @@ birdSound.play();
 document.addEventListener("keydown", (event) => {
   if (dropCount === 2) {
     dropCount = 0
-    alert('Возможно, чтобы сделать два шага вперёд, нужно сделать один шаг назад)')
+    alert('Возможно, чтобы сделать два шага вперёд, нужно сделать один шаг назад')
    }
   if (event.code == "KeyX") {
     rotateClimber(pos);
